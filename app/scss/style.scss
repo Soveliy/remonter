@@ -30,7 +30,7 @@ a:hover{
     font-weight: 900;
 }
 @mixin Extra {
-    font-family: 'Futura PT',sans-serif;
+    font-family: 'Futura PT Extra',sans-serif;
     font-weight: 800;
 }
 @mixin Book {
@@ -47,19 +47,25 @@ a:hover{
     background-position: center;
 }
 .button{
+    box-sizing: border-box;
+
     @include Extra();
     text-transform: uppercase;
     text-align: center;
-    box-sizing: border-box;
+
     border-radius: 25px;
+
     transition: .3s;
     &--theme-grey{
         color: #c8c7c6;
+
         border: 2px solid #c8c7c6;
 
         &:hover{
-            border-color: $orange;
             color: $orange;
+
+            border-color: $orange;
+
         }
     }
     &--theme-orange{
@@ -85,6 +91,9 @@ a:hover{
     }
     &--size-tiny{
         padding: 7.5px;
+    }
+    &--size-medium{
+        padding: 11px;
     }
     &--size-big{
         padding: 12px;
@@ -112,9 +121,11 @@ a:hover{
     justify-content: center;
     width: 39px;
     height: 39px;
+
     border-radius: 50%;
     background-color: $white;
     box-shadow: 0px 3px 0px 0px rgba(188, 194, 210, 1);
+
     transition: .3s;
 
     &:hover{
@@ -133,6 +144,7 @@ a:hover{
     &__icon{
         width: 12px;
         height: 10px;
+
         transition: .3s;
 
         &--left{
@@ -148,11 +160,18 @@ a:hover{
     &--black{
         color: $black;
     }
+    &--white{
+        color: $white;
+    }
+    &--orange{
+        color: $orange;
+    }
 }
 .section{
     &--mt{
         position: relative;
         z-index: 10;
+
         margin-top: -87px;
     }
     &--indentation{
@@ -245,8 +264,83 @@ a:hover{
 }
   
 .about{
-    padding: 90px 0 197px;
+    padding: 85px 0 182px;
+
     @include bgCenter();
+
+    &__title{
+        font-size: 46px;
+        line-height: 49px;
+        @include Extra();
+    }
+    &__text{
+        max-width: 96.8%;
+        margin: 73px 0 27px;
+
+        font-size: 18px;
+        line-height: 21px;
+        @include Demi();
+        color: $white;
+    }
+    &__row{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 98.4%;
+        margin-right: -15px;
+        
+    }
+    &__item-container{
+        width: 33.3%;
+        box-sizing: border-box;
+        padding-right: 15px;
+        margin-bottom: 15px;
+    }
+    &__call-form{
+        margin-top: 9px;
+    }
+}
+.about-item{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px 5px 17px 19px;
+    height: 100%;
+
+    background-color: rgba($white, .2);
+
+    border-radius: 5px;
+
+    transition: .3s;
+
+    &:hover{
+        background-color: $white;
+        transform: scale(1.1);
+
+        .about-item__desc{
+            color: $black;
+        }
+    }
+
+    &__icon-container{
+        display: flex;
+        align-items: center;
+        width: 24px;
+        height: 22px;
+        flex-shrink: 0;
+        margin-right: 11px;
+    }
+    &__icon{
+        max-width: 24px;
+        max-height: 22px;
+
+        fill: $orange;
+    }
+    &__desc{
+        color: $white;
+        font-size: 14px;
+        line-height: 17px;
+        @include Demi();
+    }
 }
 .call-form{
     position: relative;
@@ -287,7 +381,10 @@ a:hover{
             background: url(../img/big-form-after.jpg) center center no-repeat;
         }
     }
-
+    &--lit{
+        box-sizing: border-box;
+        padding: 36px 22px 40px;
+    }
     &__title{
         @include Extra();
         text-transform: uppercase;
@@ -299,11 +396,30 @@ a:hover{
             line-height: 21px;
             text-align: center;
         }
+        &--lit{
+            margin-bottom: 21px;
+            
+            font-size: 14.76px;
+            line-height: 18px;
+            text-align: center;
+        }
+    }
+    &__title-inside{
+        font-size: 12.91px;
     }
 
     &__row{
         display: flex;
         margin-right: -10px;
+    }
+    &__column{
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 0 7px;
+    }
+    &__input-container{
+        margin-bottom: 10px;
     }
     &__item-container{
         box-sizing: border-box;

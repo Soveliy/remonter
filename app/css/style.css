@@ -197,12 +197,12 @@ a:hover {
 }
 
 .button {
-  font-family: 'Futura PT',sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Futura PT Extra',sans-serif;
   font-weight: 800;
   text-transform: uppercase;
   text-align: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   border-radius: 25px;
   -webkit-transition: .3s;
   transition: .3s;
@@ -214,8 +214,8 @@ a:hover {
 }
 
 .button--theme-grey:hover {
-  border-color: #ff531d;
   color: #ff531d;
+  border-color: #ff531d;
 }
 
 .button--theme-orange {
@@ -245,6 +245,10 @@ a:hover {
   padding: 7.5px;
 }
 
+.button--size-medium {
+  padding: 11px;
+}
+
 .button--size-big {
   padding: 12px;
 }
@@ -262,7 +266,7 @@ a:hover {
 .section-title {
   font-size: 38px;
   line-height: 41px;
-  font-family: 'Futura PT',sans-serif;
+  font-family: 'Futura PT Extra',sans-serif;
   font-weight: 800;
   color: #3b3d42;
   text-align: center;
@@ -321,6 +325,14 @@ a:hover {
 
 .text--black {
   color: #000;
+}
+
+.text--white {
+  color: #fff;
+}
+
+.text--orange {
+  color: #ff531d;
 }
 
 .section--mt {
@@ -425,10 +437,104 @@ a:hover {
 }
 
 .about {
-  padding: 90px 0 197px;
+  padding: 85px 0 182px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.about__title {
+  font-size: 46px;
+  line-height: 49px;
+  font-family: 'Futura PT Extra',sans-serif;
+  font-weight: 800;
+}
+
+.about__text {
+  max-width: 96.8%;
+  margin: 73px 0 27px;
+  font-size: 18px;
+  line-height: 21px;
+  font-family: 'Futura PT Demi',sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+.about__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 98.4%;
+  margin-right: -15px;
+}
+
+.about__item-container {
+  width: 33.3%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-right: 15px;
+  margin-bottom: 15px;
+}
+
+.about__call-form {
+  margin-top: 9px;
+}
+
+.about-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 12px 5px 17px 19px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.about-item:hover {
+  background-color: #fff;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.about-item:hover .about-item__desc {
+  color: #000;
+}
+
+.about-item__icon-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 24px;
+  height: 22px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 11px;
+}
+
+.about-item__icon {
+  max-width: 24px;
+  max-height: 22px;
+  fill: #ff531d;
+}
+
+.about-item__desc {
+  color: #fff;
+  font-size: 14px;
+  line-height: 17px;
+  font-family: 'Futura PT Demi',sans-serif;
+  font-weight: 400;
 }
 
 .call-form {
@@ -469,8 +575,14 @@ a:hover {
   background: url(../img/big-form-after.jpg) center center no-repeat;
 }
 
+.call-form--lit {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 36px 22px 40px;
+}
+
 .call-form__title {
-  font-family: 'Futura PT',sans-serif;
+  font-family: 'Futura PT Extra',sans-serif;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -482,11 +594,39 @@ a:hover {
   text-align: center;
 }
 
+.call-form__title--lit {
+  margin-bottom: 21px;
+  font-size: 14.76px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.call-form__title-inside {
+  font-size: 12.91px;
+}
+
 .call-form__row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-right: -10px;
+}
+
+.call-form__column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 7px;
+}
+
+.call-form__input-container {
+  margin-bottom: 10px;
 }
 
 .call-form__item-container {
@@ -763,7 +903,7 @@ a:hover {
   left: 50%;
   font-size: 153.66px;
   line-height: 157px;
-  font-family: 'Futura PT',sans-serif;
+  font-family: 'Futura PT Extra',sans-serif;
   font-weight: 800;
   color: rgba(191, 200, 208, 0.3);
   -webkit-transform: translate(-50%, 30%);
@@ -790,7 +930,7 @@ a:hover {
   z-index: 10;
   font-size: 20px;
   line-height: 23px;
-  font-family: 'Futura PT',sans-serif;
+  font-family: 'Futura PT Extra',sans-serif;
   font-weight: 800;
   text-align: center;
   text-transform: uppercase;

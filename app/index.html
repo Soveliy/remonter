@@ -222,11 +222,105 @@
             <div class="about section" style="background-image: url(images/backgrounds/about.jpg);">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-2">
-                            <form action="#" class="call-form">
-                               <p>
-                                   123
-                               </p>
+                        <div class="col-lg-9">
+                            <h1 class="about__title">
+                                <span class="text text--white">РЕМОНТ</span> <span class="text text--blue">БЫТОВОЙ ТЕХНИКИ</span>
+                            </h1>
+                            <p class="about__text">
+                                Обратившись за помощью в разрешении компьютерных проблем в нашу компанию, клиенты 
+                                получают следующий набор высококачественных услуг:
+                            </p>
+                            <div class="about__row">
+                                <div class="about__item-container">
+                                    <div class="about-item">
+                                        <div class="about-item__icon-container">
+                                            <svg class="icon about-item__icon icon-lope"><use xlink:href="#icon-lope"></use></svg>
+                                        </div>
+                                        <p class="about-item__desc">
+                                            Бесплатную диагностику 
+                                            техники
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="about__item-container">
+                                    <div class="about-item">
+                                        <div class="about-item__icon-container">
+                                            <svg class="icon about-item__icon icon-car"><use xlink:href="#icon-car"></use></svg>
+                                        </div>
+                                        <p class="about-item__desc">
+                                            Оперативный выезд  <br>
+                                            в течение 1 часа
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="about__item-container">
+                                    <div class="about-item">
+                                        <div class="about-item__icon-container">
+                                            <svg class="icon about-item__icon icon-discount"><use xlink:href="#icon-discount"></use></svg>
+                                        </div>
+                                        <p class="about-item__desc">
+                                            Демократичные цены и <br>
+                                            скидки                                            
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="about__item-container">
+                                    <div class="about-item">
+                                        <div class="about-item__icon-container">
+                                            <svg class="icon about-item__icon icon-man"><use xlink:href="#icon-man"></use></svg>
+                                        </div>
+                                        <p class="about-item__desc">
+                                            Бесплатный выезд <br>
+                                            мастера
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="about__item-container">
+                                    <div class="about-item">
+                                        <div class="about-item__icon-container">
+                                            <svg class="icon about-item__icon icon-computer"><use xlink:href="#icon-computer"></use></svg>
+                                        </div>
+                                        <p class="about-item__desc">
+                                            Быстрый и квалифицированный 
+                                            ремонт компьютера
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="about__item-container">
+                                    <div class="about-item">
+                                        <div class="about-item__icon-container">
+                                            <svg class="icon about-item__icon icon-star"><use xlink:href="#icon-star"></use></svg>
+                                        </div>
+                                        <p class="about-item__desc">
+                                            Индивидуальный подход 
+                                            к каждому клиенту
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <form  class="call-form call-form--lit about__call-form" action="#">
+                                <h3 class="call-form__title call-form__title--lit">
+                                    <span class="call-form__title-inside">ДИАГНОСТИКА</span> <br>
+                                    При ремонте <span class="text text--orange">БЕСПЛАТНая</span>
+                                </h3>
+                                <div class="call-form__column">
+                                    <span class="call-form__input-container">
+                                        <input class="call-form__input inputbox" type="text"  placeholder="Ваше имя">
+                                    </span>
+                                    <span class="call-form__input-container">
+                                        <input class="call-form__input numbox inputbox" type="text"  placeholder="Ваш телефон">
+                                    </span>
+                                    <button class="call-form__button button button--size-medium button--font-tiny button--theme-orange" type="submit">
+                                        вызвать мастера
+                                    </button>
+                                </div>
+                                <p class="call-form__text">
+                                    Нажимая кнопку “Вызвать мастера” вы соглашаетесь на обработку ваших персональных данных
+                                </p>
+                              
                             </form>
                         </div>
                     </div>
@@ -236,7 +330,17 @@
 
              <!--start double-section-->
             <div class="section double-section section--indentation section--grey section--mt">
-                 <!--start working-->
+
+                <!--start prices-->
+                <section class="section prices">
+                    <div class="container">
+                        <h2 class="section-title">
+                            Таблица цен и услуг
+                        </h2>
+                    </div>
+                </section>
+                <!--end prices-->
+                <!--start working-->
                 <section class="working">
                     <div class="container">
                         <h2 class="section-title">
@@ -294,19 +398,19 @@
                         </div>
                     </div>
                 </section>
-                 <!--end working-->
+                <!--end working-->
                  <form action="#" class="call-form call-form--big">
                     <h3 class="call-form__title call-form__title--big">
                         ВыЗОВИТЕ МАСТЕРА И ПОЛУЧИТЕ СКИДКУ 10%
                     </h3>
                     
                     <div class="call-form__row">
-                        <div class="call-form__item-container">
+                        <span class="call-form__item-container">
                             <input class="call-form__input inputbox" type="text" placeholder="Ваше имя">
-                        </div>
-                        <div class="call-form__item-container">
+                        </span>
+                        <span class="call-form__item-container">
                             <input class="call-form__input numbox inputbox" type="text" placeholder="Ваш телефон">
-                        </div>
+                        </span>
                         <div class="call-form__item-container">
                             <button class="call-form__button button button--font-tiny button--theme-orange">вызвать мастера</button>
                         </div>
