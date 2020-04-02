@@ -3,15 +3,15 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="minimum-scale=1.0, width=device-width,height=device-height initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="HandheldFriendly" content="true">
-    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="css/vendor.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <title>Document</title>
 </head>
 <body>
@@ -148,80 +148,122 @@
      <!--end sprite-->
     <!--start wrapper-->
     <div class="wrapper">
+        
         <!--start header-->
-        <header class="header header--big">
+        <header class="header  header--big">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-5">
-                        <div class="header__left-side">
+                    <div class="col-12 d-flex justify-content-lg-between">
+                        
+                        <div class="header__content">
                             <div class="logo header__logo">
                                 <a class="logo__link" href="#" >
-                                    <img class="logo__image" src="images/repairing.svg" alt="logo">
+                                    <img class="logo__image logo__image--big" src="images/repairing.svg" alt="logo">
                                     <span class="logo__text">
-                                        <span class="logo__name"><span class="text text--blue">РЕМОНТ</span><span class="text text--black">ЁР</span></span>
-                                        <span class="logo__tagline">Ремонт быт. техники</span>
+                                        <span class="logo__name logo__name--big"><span class="text text--blue">РЕМОНТ</span><span class="text text--black">ЁР</span></span>
+                                        <span class="logo__tagline logo__tagline--big">Ремонт быт. техники</span>
                                     </span>
                                 </a>
                             </div>
-                            <select class="header__select">
+                            <select class="header__select header__select--lg select">
                                 <option>Москва</option>
                             </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 offset-lg-2">
-                       <div class="header__right-side">
-                            <a href="tel:88452467122" class="phone-link">
+                            <div class="header__menu">
+                                <nav class="inside-menu header__inside-menu">
+                                    <ul class="inside-menu__list inside-menu__list--md-column">
+                                        <li class="inside-menu__list-item">
+                                            <a href="#about" class="inside-menu__link active scroll-link">
+                                             Кто мы?
+                                            </a>
+                                         </li>
+                                        <li class="inside-menu__list-item">
+                                            <a href="#price" class="inside-menu__link scroll-link">
+                                             Стоимость работ
+                                            </a>
+                                         </li>
+                                        <li class="inside-menu__list-item">
+                                            <a href="#features" class="inside-menu__link scroll-link">
+                                             Преимщества
+                                            </a>
+                                         </li>
+                                        <li class="inside-menu__list-item">
+                                            <a href="#reviews" class="inside-menu__link scroll-link">
+                                             Отзывы
+                                            </a>
+                                         </li>
+                                        <li class="inside-menu__list-item">
+                                            <a href="#contacts" class="inside-menu__link scroll-link">
+                                             Контакты
+                                            </a>
+                                         </li>
+                                    </ul>
+                                </nav>
+                                <select class="header__select select select--g-hidden">
+                                    <option>Москва</option>
+                                </select>
+                            </div>
+                            <a class="header__phone-link phone-link" href="tel:88452467122" >
                                 <svg class="icon phone-link__icon icon-phone-call"><use xlink:href="#icon-phone-call"></use></svg>
-                                8 (8452) 46-71-22
+                               <span class="header__phone-link__text d-none d-md-block"> 8 (8452) 46-71-22</span>
                             </a>
-                            <a href="#" class="button header__button button--font-tiny button--size-big button--theme-blue">
+                            <button class="button header__button button--font-tiny button--size-big button--theme-blue" data-toggle="modal" data-target="#call-modal" >
                                 СВЯЗАТЬСЯ С НАМИ
-                            </a>
-                       </div>
+                            </button>
+                            <div class="header__burger burger flex-shrink-0 d-flex d-lg-none align-items-center justify-content-center flex-column">
+                                <div class="rect"></div>
+                                <div class="rect"></div>
+                                <div class="rect"></div>
+                            </div>
+                        </div>
+                        
+                            
+                      
                     </div>
                 </div>
             </div>
         </header>
         <!--end header-->
 
-        <!--start main-menu-->
-        <nav class="main-menu container">
-            <ul class="row main-menu__list flex-nowrap">
-                <li class="main-menu__item">
-                    <a href="#" class="main-menu__link">
-                        Кто мы?
-                    </a>
-                </li>
-                <li class="main-menu__item">
-                    <a href="#" class="main-menu__link">
-                        Стоимость работ
-                    </a>
-                </li>
-                <li class="main-menu__item">
-                    <a href="#" class="main-menu__link">
-                        Преимущества
-                    </a>
-                </li>
-                <li class="main-menu__item">
-                    <a href="#" class="main-menu__link">
-                        Отзывы
-                    </a>
-                </li>
-                <li class="main-menu__item">
-                    <a href="#" class="main-menu__link">
-                        Контакты
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <!--end main-menu-->
+       
         
         <!--start main-->
         <main>
+
+             <!--start main-menu-->
+            <nav class="main-menu container">
+                <ul class="main-menu__list flex-nowrap">
+                    <li class="main-menu__item">
+                        <a href="#about" class="main-menu__link active scroll-link">
+                            Кто мы?
+                        </a>
+                    </li>
+                    <li class="main-menu__item">
+                        <a href="#price" class="main-menu__link scroll-link">
+                            Стоимость работ
+                        </a>
+                    </li>
+                    <li class="main-menu__item">
+                        <a href="#features" class="main-menu__link scroll-link">
+                            Преимущества
+                        </a>
+                    </li>
+                    <li class="main-menu__item">
+                        <a href="#reviews" class="main-menu__link scroll-link">
+                            Отзывы
+                        </a>
+                    </li>
+                    <li class="main-menu__item">
+                        <a href="#contacts" class="main-menu__link scroll-link">
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!--end main-menu-->
             <!--start about-->
-            <div class="about section" style="background-image: url(images/backgrounds/about.jpg);">
+            <div class="about section" id="about" style="background-image: url(images/backgrounds/about.jpg);">
                 <div class="container">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col-lg-9">
                             <h1 class="about__title">
                                 <span class="text text--white">РЕМОНТ</span> <span class="text text--blue">БЫТОВОЙ ТЕХНИКИ</span>
@@ -300,18 +342,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <form  class="call-form call-form--lit about__call-form" action="#">
+                        <div class="col-lg-3 col-sm-6">
+                            <form  class="call-form call-form--lit about__call-form" id="call-form1" action="php/form.php" method="POST">
                                 <h3 class="call-form__title call-form__title--lit">
                                     <span class="call-form__title-inside">ДИАГНОСТИКА</span> <br>
                                     При ремонте <span class="text text--orange">БЕСПЛАТНая</span>
                                 </h3>
                                 <div class="call-form__column">
                                     <span class="call-form__input-container">
-                                        <input class="call-form__input inputbox" type="text"  placeholder="Ваше имя">
+                                        <input class="call-form__input inputbox form-control" type="text" name="name"  placeholder="Ваше имя" required>
                                     </span>
                                     <span class="call-form__input-container">
-                                        <input class="call-form__input numbox inputbox" type="text"  placeholder="Ваш телефон">
+                                        <input class="call-form__input numbox inputbox form-control" type="text" name="phone"  placeholder="Ваш телефон" required>
                                     </span>
                                     <button class="call-form__button button button--size-medium button--font-tiny button--theme-orange" type="submit">
                                         вызвать мастера
@@ -332,22 +374,317 @@
             <div class="section double-section section--indentation section--grey section--mt">
 
                 <!--start prices-->
-                <section class="section prices">
+                <section class="section prices" id="price">
                     <div class="container">
                         <h2 class="section-title">
                             Таблица цен и услуг
                         </h2>
+                        <div class="prices__row row">
+                            <div class="col-lg-2">
+                              <div class="prices prices__list-group list-group" id="list-tab" role="tablist">
+                                <a class="prices__list-group-item list-group-item list-group-item-action active" id="washer-list" data-toggle="list" href="#washer" role="tab">
+                                    <svg class="prices__icon icon-washer"><use xlink:href="#icon-washer"></use></svg>
+                                    <span class="prices__text">
+                                        Ремонт <br>
+                                        стиральных машин
+                                    </span>
+                                </a>
+                                <a class="prices__list-group-item list-group-item list-group-item-action" id="dishwasher-list" data-toggle="list" href="#dishwasher" role="tab" >
+                                    <svg class="prices__icon icon-dishwasher-1"><use xlink:href="#icon-dishwasher-1"></use></svg>
+                                    <span class="prices__text">
+                                        Ремонт <br>
+                                        посудомоечных машин
+                                    </span>
+                                </a>
+                                <a class="prices__list-group-item list-group-item list-group-item-action" id="kitchen-list" data-toggle="list" href="#kitchen" role="tab">
+                                    <svg class="prices__icon icon-kitchen"><use xlink:href="#icon-kitchen"></use></svg>
+                                    <span class="prices__text">
+                                        Ремонт  <br>
+                                        холодильников
+                                    </span>
+                                </a>
+                                
+                              </div>
+                            </div>
+                            <div class="col-lg-10 pl-lg-0">
+                              <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="washer" role="tabpanel" aria-labelledby="washer-list">
+                                    <div class="prices__table">
+                                        <div class="prices__table-thead">
+                                            <div class="prices__table-th">
+                                                Поломка
+                                            </div>
+                                            <div class="prices__table-th prices__table-th--center">
+                                                Цена
+                                            </div>
+                                            <div class="prices__table-th prices__table-th--center">
+                                                Стоимость
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="dishwasher" role="tabpanel" aria-labelledby="dishwasher-list">
+                                    <div class="prices__table">
+                                        <div class="prices__table-thead">
+                                            <div class="prices__table-th">
+                                                Поломка
+                                            </div>
+                                            <div class="prices__table-th prices__table-th--center">
+                                                Цена
+                                            </div>
+                                            <div class="prices__table-th prices__table-th--center">
+                                                Стоимость
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="kitchen" role="tabpanel" aria-labelledby="kitchen-list">
+                                    <div class="prices__table">
+                                        <div class="prices__table-thead">
+                                            <div class="prices__table-th">
+                                                Поломка
+                                            </div>
+                                            <div class="prices__table-th prices__table-th--center">
+                                                Цена
+                                            </div>
+                                            <div class="prices__table-th prices__table-th--center">
+                                                Стоимость
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                        <div class="prices__table-tr">
+                                            <div class="prices__table-td">
+                                                Наименование услуги
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center">
+                                                От 500 Рублей
+                                            </div>
+                                            <div class="prices__table-td prices__table-td--center prices__table-td--coast">
+                                                2 500 руб.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="more">
+                           <div class="row">
+                                <div class="col-xl-8 offset-xl-4 col-lg-10 offset-lg-2">
+                                    <div class="more__content">
+                                        <button class="more__button"  data-toggle="modal" data-target="#call-modal">
+                                            Увидеть все возможные поломки
+                                        </button>
+                                        <div class="more__list">
+                                            <span class="more__list-label">
+                                                Возможность безналичной оплаты
+                                            </span>
+                                            <div class="more__list-item"><img class="more__image" src="img/payment/1.png" alt=""></div>
+                                            <div class="more__list-item"><img class="more__image" src="img/payment/2.png" alt=""></div>
+                                            <div class="more__list-item"><img class="more__image" src="img/payment/3.png" alt=""></div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
                     </div>
                 </section>
                 <!--end prices-->
                 <!--start working-->
-                <section class="working">
+                <section class="working" id="features">
                     <div class="container">
                         <h2 class="section-title">
                             Как работает наш сервис
                         </h2>
-                        <div class="row working__row">
-                            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                        <div class="row working__row justify-content-center">
+                            <div class="col-lg-3 col-md-6 col-sm-9 mb-4 mb-lg-0">
                                 <div class="working-item">
                                     <div class="working-item__wrap" data-item="01">
                                         <h3 class="working-item__title">
@@ -359,7 +696,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                            <div class="col-lg-3 col-md-6 col-sm-9 mb-4 mb-lg-0">
                                 <div class="working-item">
                                     <div class="working-item__wrap" data-item="02">
                                         <h3 class="working-item__title">
@@ -371,7 +708,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                            <div class="col-lg-3 col-md-6 col-sm-9 mb-4 mb-lg-0">
                                 <div class="working-item">
                                     <div class="working-item__wrap" data-item="03">
                                         <h3 class="working-item__title">
@@ -383,7 +720,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                            <div class="col-lg-3 col-md-6 col-sm-9 mb-4 mb-lg-0">
                                 <div class="working-item">
                                     <div class="working-item__wrap" data-item="04">
                                         <h3 class="working-item__title">
@@ -399,17 +736,17 @@
                     </div>
                 </section>
                 <!--end working-->
-                 <form action="#" class="call-form call-form--big">
+                 <form  class="call-form call-form--big" action="php/form.php" method="POST" id="call-form2">
                     <h3 class="call-form__title call-form__title--big">
                         ВыЗОВИТЕ МАСТЕРА И ПОЛУЧИТЕ СКИДКУ 10%
                     </h3>
                     
                     <div class="call-form__row">
                         <span class="call-form__item-container">
-                            <input class="call-form__input inputbox" type="text" placeholder="Ваше имя">
+                            <input class="call-form__input inputbox form-control" type="text" placeholder="Ваше имя" required>
                         </span>
                         <span class="call-form__item-container">
-                            <input class="call-form__input numbox inputbox" type="text" placeholder="Ваш телефон">
+                            <input class="call-form__input numbox inputbox form-control" type="text" placeholder="Ваш телефон" required>
                         </span>
                         <div class="call-form__item-container">
                             <button class="call-form__button button button--font-tiny button--theme-orange">вызвать мастера</button>
@@ -422,7 +759,7 @@
             </div>
             <!--end double-section-->
             <!--start reviews-->
-            <section class="section reviews">
+            <section class="section reviews" id="reviews">
                 <div class="container">
                     <h2 class="section-title">
                         Отзывы
@@ -502,33 +839,276 @@
                             </div>
                         </div>
                         <div class="reviews__arrows">
-                            <div class="swiper-button-prev swiper-arrow ">
-                                <svg class="icon swiper-arrow__icon  swiper-arrow__icon--left icon-arrow-pointing-to-right"><use xlink:href="#icon-arrow-pointing-to-right"></use></svg>
+                            <div class="swiper-button-prev swiper-button ">
+                                <svg class="icon swiper-button__icon  swiper-button__icon--left icon-arrow-pointing-to-right"><use xlink:href="#icon-arrow-pointing-to-right"></use></svg>
                             </div>
-                            <div class="swiper-button-next swiper-arrow ">
-                                <svg class="icon swiper-arrow__icon icon-arrow-pointing-to-right"><use xlink:href="#icon-arrow-pointing-to-right"></use></svg>
+                            <div class="swiper-button-next swiper-button ">
+                                <svg class="icon swiper-button__icon icon-arrow-pointing-to-right"><use xlink:href="#icon-arrow-pointing-to-right"></use></svg>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="button reviews__button button--size-tiny button--font-big button--theme-grey">
+                    <button class="button reviews__button button--size-tiny button--font-big button--theme-grey" data-toggle="modal" data-target="#call-modal-review">
                         Оставить свой отзыв
-                    </a>
+                    </button>
                 </div>
                 
             </section>
             <!--end reviews-->
+
+            <!--start map-masters-->
+            <section class="map-masters section section--indentation" id="contacts">
+                <div class="container">
+                    <h2 class="section-title">
+                        здесь есть наши мастера
+                    </h2>
+                   
+                </div>
+                <div class="map-masters__content">
+                    <div class="map-masters__canvas" id="map">
+
+                    </div>
+                    <div class="map-masters__info">
+                        <p class="map-masters__text">
+                            До 7 км от границы города выезд бесплатный, от 7км до 30км  <br>
+                            выезд 300 руб.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!--end map-masters-->
+            <div class="subfooter"></div>
         </main>
           <!--end main-->
     </div>
     <!--end wrapper-->
 
+    <!--start footer-->
+    <footer class="footer section section--indentation">
+        <div class="container">
+            <div class="row align-items-lg-center justify-content-center">
+               <div class="col-lg-3 order-first d-flex justify-content-center justify-content-lg-start">
+                <div class="logo footer__logo">
+                    <a class="logo__link" href="#" >
+                        <img class="logo__image logo__image--big" src="images/repairing.svg" alt="logo">
+                        <span class="logo__text">
+                            <span class="logo__name logo__name--big"><span class="text text--blue">РЕМОНТ</span><span class="text text--black">ЁР</span></span>
+                            <span class="logo__tagline logo__tagline--big">Ремонт быт. техники</span>
+                        </span>
+                    </a>
+                </div>
+               </div>
+              
+               <div class="w100"></div>
+               <div class="col-lg-8 mt-5">
+                   <nav class="inside-menu">
+                       <ul class="inside-menu__list inside-menu__list--md-column">
+                           <li class="inside-menu__list-item">
+                               <a href="#about" class="inside-menu__link active scroll-link">
+                                Кто мы?
+                               </a>
+                            </li>
+                           <li class="inside-menu__list-item">
+                               <a href="#price" class="inside-menu__link scroll-link">
+                                Стоимость работ
+                               </a>
+                            </li>
+                           <li class="inside-menu__list-item">
+                               <a href="#features" class="inside-menu__link scroll-link">
+                                Преимщества
+                               </a>
+                            </li>
+                           <li class="inside-menu__list-item">
+                               <a href="#reviews" class="inside-menu__link scroll-link">
+                                Отзывы
+                               </a>
+                            </li>
+                           <li class="inside-menu__list-item">
+                               <a href="#contacts" class="inside-menu__link scroll-link">
+                                Контакты
+                               </a>
+                            </li>
+                       </ul>
+                   </nav>
+               </div>
+               <div class="col-lg-4 d-flex justify-content-lg-end justify-content-center  mt-5">
+                <a href="tel:88452467122" class="phone-link">
+                    <svg class="icon phone-link__icon icon-phone-call"><use xlink:href="#icon-phone-call"></use></svg>
+                    8 (8452) 46-71-22
+                </a>
+               </div>
+               <div class="col-lg-3 offset-lg-6 d-flex justify-content-lg-end justify-content-center order-lg-first mt-4 mt-lg-0">
+                <button class="button  footer__button button--font-tiny button--size-big button--theme-blue" data-toggle="modal" data-target="#call-modal">
+                    СВЯЗАТЬСЯ С НАМИ
+                </button>
+               </div>
+            </div>
+            <div class="footer__link-container">
+                <a href="#" class="footer__link">
+                    Политика конфиденциальности
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!--end footer-->
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="js/mask.js"></script>
-    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
+<!--start modal-->
+    <div class="modal fade" id="call-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal__body">
+                <h2 class="modal__title">
+                    Связь с нами
+                </h2>
+                <p class="modal__subtitle">
+                    Заполните форму ниже и мы перезвоним Вам через 5 минут
+                </p>
+                <form class="modal__form" id="call-form3" action="php/form.php" method="POST">
+                    <span class="modal__input-container">
+                        <input class="modal__input inputbox form-control" type="text" name="name"  placeholder="Ваше имя" required>
+                    </span>
+                    <span class="modal__input-container">
+                        <input class="modal__input inputbox numbox form-control" name="phone" type="text"  placeholder="Ваш телефон" required>
+                    </span>
+                    <button class="button modal__button button--font-tiny button--size-big button--theme-blue" type="submit">
+                        Связаться с нами
+                    </button>
+                </form>
+                <p class="modal__text">
+                    Нажимая кнопку «Связаться с нами» Вы соглашаетесь на обработку 
+                    Ваших персональных данных
+                </p>
+                <button type="button" class="modal__close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                  </button>
+            </div>
+             
+             
+            
+           
+           
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="call-modal-review" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal__body">
+                <h2 class="modal__title">
+                  Оставить отзыв
+                </h2>
+                <p class="modal__subtitle">
+                    Заполните форму ниже и мы перезвоним Вам через 5 минут
+                </p>
+                <form class="modal__form" id="call-form4" action="php/form2.php" method="POST">
+                    <span class="modal__input-container">
+                        <input class="modal__input inputbox form-control" type="text" name="name"  placeholder="Ваше имя" required>
+                    </span>
+                    <span class="modal__input-container">
+                        <input class="modal__input inputbox numbox form-control" name="phone" type="text"  placeholder="Ваш телефон" required>
+                    </span>
+                    <span class="modal__input-container">
+                        <textarea class="modal__textarea textarea" name="textarea__review"  placeholder="Ваш отзыв"></textarea>
+                    </span>
+                    <button class="button modal__button button--font-tiny button--size-big button--theme-blue" type="submit">
+                     Отправить
+                    </button>
+                </form>
+                <p class="modal__text">
+                    Нажимая кнопку «Связаться с нами» Вы соглашаетесь на обработку 
+                    Ваших персональных данных
+                </p>
+                <button type="button" class="modal__close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                  </button>
+            </div>
+             
+             
+            
+           
+           
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="thansk" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal__body">
+                <h2 class="modal__title">
+                    Спасибо!
+                </h2>
+                <p class="modal__subtitle">
+                    Мы перезвоним Вам через 5 минут
+                </p>
+                <form class="modal__form">
+                   
+                    <button class="button modal__button button--font-tiny button--size-big button--theme-blue" data-dismiss="modal" aria-label="Close">
+                       ок
+                    </button>
+                </form>
+                <p class="modal__text">
+
+                </p>
+                <button type="button" class="modal__close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                  </button>
+            </div>
+             
+             
+            
+           
+           
+          </div>
+        </div>
+    </div>
+
+<!--end modal-->
+
+    <script src="js/vendor.min.js"></script>
+    
     <script src="js/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdCmG4myRUXPTwx-m1NVi27wW8P-yb2CQ&callback=initMap" async defer>
+    </script>
+    <script>
+        
+       
+        // Initialize and add the map
+        function initMap() {
+            var icon = {
+            url: "img/icons/location-pin.svg", // url,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(58, 80)
+            };
+          // The location of map
+          var map_loc = {lat: -25.344, lng: 131.036};
+          // The map, centered at Uluru
+          var map = new google.maps.Map(
+              document.getElementById('map'), {zoom: 12, center: map_loc});
+          // The marker, positioned at Uluru
+          var marker1 = new google.maps.Marker({
+              position: map_loc,
+              map: map,
+              icon:icon,
+            });
+            var marker2 = new google.maps.Marker({
+              position: {lat: -25.38, lng: 131.3},
+              map: map,
+              icon:icon,
+            });
+            
+            var marker3 = new google.maps.Marker({
+              position: {lat: -25.40, lng: 131.02},
+              map: map,
+              icon:icon,
+            });
+            var marker4 = new google.maps.Marker({
+              position: {lat: -25.35, lng: 131.1},
+              map: map,
+              icon:icon,
+            });
+        }
+    </script>
+
 </body>
 </html>

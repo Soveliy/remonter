@@ -1,4 +1,4 @@
-@import "nice-select.scss";
+
 $white:#fff;
 $black:#000;
 $grey:#3b3d42;
@@ -7,11 +7,36 @@ $blue2:#0070c4;
 $orange:#ff531d;
 $MyRiad: 'Myriad Pro',sans-serif;
 $orangeGradiend:linear-gradient( -180deg, rgb(255,83,29) 0%, rgb(245,149,78) 99%);
+@mixin for-xl {
+    @media (max-width: 1300px) { @content; }
+  }
+@mixin for-lg {
+    @media (max-width: 1139px) { @content; }
+  }
+  @mixin for-md {
+    @media (max-width: 991px) { @content; }
+  }
+  @mixin for-sm {
+    @media (max-width: 767px) { @content; }
+  }
+  @mixin for-tiny-mob {
+    @media (max-width: 500px) { @content; }
+  }
 
 .container, .container-lg, .container-md, .container-sm, .container-xl {
 
     max-width: 1170px;
 
+}
+.modal{
+    cursor: pointer;
+
+    &__body{
+        cursor: auto;
+    }
+}
+.wrapper{
+    overflow: hidden;
 }
 .nice-select::after{
     height: 8px;
@@ -28,6 +53,14 @@ a:hover{
 @mixin Heavy {
     font-family: 'Futura PT',sans-serif;
     font-weight: 900;
+}
+@mixin Bold {
+    font-family: 'Futura PT',sans-serif;
+    font-weight: 700;
+}
+@mixin Medium {
+    font-family: 'Futura PT',sans-serif;
+    font-weight: 500;
 }
 @mixin Extra {
     font-family: 'Futura PT Extra',sans-serif;
@@ -46,6 +79,12 @@ a:hover{
     background-repeat: no-repeat;
     background-position: center;
 }
+body{
+    position: relative;
+
+    padding-top: 92px;
+    box-sizing: border-box;
+}
 .button{
     box-sizing: border-box;
 
@@ -59,6 +98,7 @@ a:hover{
     &--theme-grey{
         color: #c8c7c6;
 
+        background-color: $white;
         border: 2px solid #c8c7c6;
 
         &:hover{
@@ -88,6 +128,12 @@ a:hover{
 
         background-image:linear-gradient( -180deg, rgb(0,112,196) 0%, rgb(17,136,226) 99%);
         box-shadow: 0px 6px 29px 0px rgba(0, 0, 0, 0.16);
+        
+        transition: .3s;
+
+        &:hover{
+           opacity: .8;
+        }
     }
     &--size-tiny{
         padding: 7.5px;
@@ -114,8 +160,17 @@ a:hover{
     color: $grey;
     text-align: center;
     text-transform: uppercase;
+
+    @include for-md{
+        font-size: 30px;
+        line-height: 35px;
+    }
+    @include for-sm{
+        font-size: 25px;
+        line-height: 30px;
+    }
 }
-.swiper-arrow {
+.swiper-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,6 +206,13 @@ a:hover{
             transform: rotate(180deg);
         }
     }
+    &-prev{
+        left: 0;
+    }
+    &-next{
+        right: 0;
+    }
+
   }
 
 .text{
@@ -173,36 +235,126 @@ a:hover{
         z-index: 10;
 
         margin-top: -87px;
+
+        @include for-md{
+            margin-top: 0;
+        }
     }
     &--indentation{
         margin-left: 51px;
         margin-right: 51px;
+
+        @include for-xl{
+            margin-left: 0;
+            margin-right: 0;
+        }
     }
     &--grey{
         background-color: #eef3f7;
     }
 }
+.select{
+    max-width: 225px;
+    width: 100%;
+    height: 43px;
+    line-height: 41px;
+
+    background-color: #f5f7f9;
+    border-radius: 5px;
+    border: none;
+
+    transition: .3s;
+
+    &--g-hidden{
+        position: absolute;
+        top: -10000em;
+
+        @include for-md{
+            position: relative;
+            top: auto;
+        }
+    }
+}
 .header{
-    &__left-side,&__right-side{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    background-color: $white;
+
+    transition: .3s;
+    
+    &__content{
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        height: 100%;
-    }
-    &__right-side{
-        box-sizing: border-box;
-        padding-top: 6px;
-    }
-
-    &__select{
-        max-width: 225px;
         width: 100%;
-        height: 43px;
-        line-height: 41px;
-
-        background-color: #f5f7f9;
-        border-radius: 5px;
     }
+    &__burger{
+        position: relative;
+        z-index: 9800;
+
+        margin-left: 10px;
+    }
+    &__logo{
+        flex-shrink: 0;
+        margin-right: 113px;
+
+        transition:.3s;
+
+        @include for-md{
+            margin-right: 0;
+        }
+        
+    }
+    &__menu{
+        display: none;
+
+        opacity: 0;
+
+        transition: .4s;
+
+        @include for-md{
+           position: absolute;
+           z-index: 9500;
+           top: 100%;
+           left: 0;
+           
+           width: 100%;
+           box-sizing: border-box;
+           padding: 20px;
+         
+
+           background-color: $white;
+           box-shadow: 0px 18px 24px 0px rgba(143, 179, 212, 0.17);
+
+           opacity: 1;
+
+           .select{
+               margin: 20px auto 0;
+               float: none;
+           }
+           
+        }
+    }
+    .inside-menu__link{
+        font-size: 14px;
+        line-height: 17px;
+
+        @include for-lg{
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        @include for-md{
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+
+    
     &--big{
         padding: 20px 0 29px;
     }
@@ -210,21 +362,114 @@ a:hover{
     &__button{
         max-width: 164px;
         width: 100%;
+
+        @include for-md{
+            display: none;
+        }
+    }
+
+    &__phone-link{
+        white-space: nowrap;
+        margin-right: 54px;
+        margin-left: auto;
+
+        
+
+        transition: .3s;
+
+        @include for-md{
+            margin-right: 0;
+        }
+    }
+    &__select{
+
+        &--lg{
+            @include for-md{
+                display: none;
+            }
+        }
     }
 }
-.main-menu{
+.header.js-fixed{
+    padding: 15px 0;
+    .logo{
+        margin-right: 24px;
+       &__image{
+           height: 28px;
+           width: 28px;
+           margin-right: 6px;
+       }
+       &__name{
+           font-size: 12.37px;
+           line-height: 15px;
+       }
+       &__tagline{
+           font-size: 6.26px;
+           line-height: 9px;
+       }
 
+    }
+    .header__menu{
+       
+        
+        opacity: 1;
+
+        
+    }
+    
+    .inside-menu__list-item + .inside-menu__list-item{
+        margin-left: 10px;
+
+        @include for-lg{
+            margin-left: 5px;
+        }
+    }
+    .phone-link{
+
+        margin-right: 23px;
+
+        font-size: 17px;
+        line-height: 20px;
+
+        @include for-lg{
+            font-size: 15px;
+            line-height: 17px;
+        }
+        
+
+        &__icon{
+            width: 16px;
+            height: 13px;
+        }
+    }
+
+    .header__select{
+        max-width: 140px;
+        margin-right: 26px;
+        padding: 0 20px 0 7px;
+
+        font-size: 12px;
+    }
+
+}
+.main-menu{
+    @include for-md{
+       display: none;
+    }
+    &__list{
+        display: flex;
+
+    }
     &__item{
         width: 100%;
     }
     &__link{
         display: flex;
-        height: 42px;
         width: 100%;
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
-        padding: 10px;
+        padding: 10px 10px 11px;
 
         font-size: 18px;
         line-height: 21px;
@@ -234,6 +479,10 @@ a:hover{
         background-color: #eff5f8;
 
         transition: .3s;
+
+        &.active{
+            color: #0070c4;
+        }
 
         &:hover{
             color: $white;
@@ -248,18 +497,29 @@ a:hover{
 .phone-link{
     position: relative;
 
+    display: flex;
+    align-items: center;
+
     font-size: 26px;
     line-height: 29px;
     @include Heavy();
     color: $black;
 
-
+    transition: .3s;
 
     &__icon{
+        flex-shrink: 0;
+        margin-right: 5px;
         width: 24px;
         height: 20px;
 
         fill: #0e84dc;
+        
+        transition: .3s;
+    }
+
+    &:hover{
+        color: #0e84dc;
     }
 }
   
@@ -268,10 +528,26 @@ a:hover{
 
     @include bgCenter();
 
+    @include for-md{
+       padding: 40px 0;
+
+       background-image: none !important;
+       background-color: #2f2e2d;
+    }
     &__title{
         font-size: 46px;
         line-height: 49px;
         @include Extra();
+
+        @include for-md{
+            font-size: 35px;
+            line-height: 40px;
+        }
+
+        @include for-sm{
+            font-size: 29px;
+            line-height: 34px;
+        }
     }
     &__text{
         max-width: 96.8%;
@@ -281,12 +557,22 @@ a:hover{
         line-height: 21px;
         @include Demi();
         color: $white;
+
+        @include for-md{
+           font-size: 16px;
+           line-height: 19px;
+           margin: 38px 0 14px;
+        }
     }
     &__row{
         display: flex;
         flex-wrap: wrap;
         max-width: 98.4%;
         margin-right: -15px;
+
+        @include for-md{
+           max-width: initial;
+        }
         
     }
     &__item-container{
@@ -294,6 +580,14 @@ a:hover{
         box-sizing: border-box;
         padding-right: 15px;
         margin-bottom: 15px;
+
+        @include for-sm{
+            width: 50%;
+        }
+
+        @include for-tiny-mob{
+            width: 100%;
+        }
     }
     &__call-form{
         margin-top: 9px;
@@ -303,7 +597,7 @@ a:hover{
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    padding: 12px 5px 17px 19px;
+    padding: 12px 5px 12px 19px;
     height: 100%;
 
     background-color: rgba($white, .2);
@@ -366,6 +660,10 @@ a:hover{
             height: 156px;
 
             background: url(../img/big-form-before.png) center center no-repeat;
+
+            @include for-sm{
+                display: none;
+            }
         }
         &:after{
             content: '';
@@ -379,6 +677,10 @@ a:hover{
             height: 158px;
 
             background: url(../img/big-form-after.jpg) center center no-repeat;
+
+            @include for-sm{
+                display: none;
+            }
         }
     }
     &--lit{
@@ -411,6 +713,11 @@ a:hover{
     &__row{
         display: flex;
         margin-right: -10px;
+
+        @include for-sm{
+           flex-direction: column;
+           margin-right: 0;
+        }
     }
     &__column{
         display: flex;
@@ -425,6 +732,12 @@ a:hover{
         box-sizing: border-box;
         width: 33.3%;
         padding-right: 10px;
+
+        @include for-sm{
+            width: 100%;
+            padding-right: 0;
+            margin-bottom: 10px;
+        }
     }
     &__input{
         height: 39px;
@@ -450,6 +763,10 @@ a:hover{
         display: block;
         width: 100%;
         height: 100%;
+
+        @include for-sm{
+            padding: 11px;
+        }
     }
     &__text{
         margin-top: 10px;
@@ -461,7 +778,6 @@ a:hover{
     }
 }
 .logo{
-
     &__link{
         display: flex;
         align-items: center;
@@ -469,10 +785,15 @@ a:hover{
     }
     &__image{
         display: block;
+        flex-shrink: 0;
         width: 43px;
         height: 43px;
         margin-right: 10px;
-        flex-shrink: 0;
+
+        transition: .3s;
+        
+       
+       
     }
     &__text{
         display: flex;
@@ -480,49 +801,98 @@ a:hover{
         
     }
     &__name{
-        font-size: 19px;
-        line-height: 22px;
+        
         @include Heavy;
+
+        transition: .3s;
+
+        &--big{
+            font-size: 19px;
+            line-height: 22px;
+        }
+
+        &--lit{
+            font-size: 12.27px;
+            line-height: 15px;
+        }
     }
     &__tagline{
-        font-size: 9.67px;
-        line-height: 12px;
+       
         font-family: $MyRiad;
+
+        transition: .3s;
+
+        &--big{
+            font-size: 9.67px;
+            line-height: 12px;
+        }
+
+        &--lit{
+            font-size: 6.26px;
+            line-height: 9px;
+        }
     }
 }
 .reviews{
     padding: 70px 0 45px;
 
+    @include for-md{
+        padding: 40px 0;
+    }
+   
     &__slider{
         position: relative;
+        
         padding: 0 50px;
         box-sizing: border-box;
+
+        @include for-md{
+           padding: 0;
+        }
 
     }
     &__swiper-slide{
         box-sizing: border-box;
         padding: 35px 15px;
+
     }
     &__button{
         position: relative;
         z-index: 10;
+
         display: block;
+        width: 100%;
         max-width: 235px;
+        padding: 15px;
         margin: -12px auto 0;
+
+        @include for-tiny-mob{
+            max-width: calc(100% - 30px);
+            margin: 0 auto;
+        }
     }
+    
 }
 .reviews-item{
     padding: 44px 30px 45px;
-    border-radius: 5px;
+    box-sizing: border-box;
+    
     background-color: $white;
     box-shadow: 0px 18px 24px 0px rgba(143, 179, 212, 0.17);
 
-    box-sizing: border-box;
+    
+    border-radius: 5px;
     &__profile{
         margin-bottom: 30px;
     }
     &__text{
         @include Book();
+
+        @include for-tiny-mob{
+            font-size: 14px;
+            line-height: 17px;
+            text-align: center;
+        }
     }
 }
 .profile{
@@ -530,10 +900,12 @@ a:hover{
     align-items: center;
     &__avatar{
         position: relative;
+
         height: 65px;
         width: 65px;
         margin-right: 32px;
         flex-shrink: 0;
+
         border-radius: 50%;
         
     }
@@ -541,6 +913,7 @@ a:hover{
         display: block;
         height: 100%;
         width: 100%;
+
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -580,15 +953,25 @@ a:hover{
 .working{
     padding: 40px 0 45px;
 
+    @include for-md{
+        padding: 30px 0 30px;
+    }
+
     &__row{
-        margin-top: 30px;
+        margin-top: 52px;
+
+        @include for-md{
+            margin-top: 30px;
+        }
     }
 }
 .working-item{
     height: 100%;
     box-sizing: border-box;
+
     background-color: $white;
     border-radius: 5px;
+
     transition: .3s;
 
     &:hover{
@@ -608,7 +991,7 @@ a:hover{
         .working-item__wrap:after{
             color: $white;
 
-            transform: translate(-30%,0);
+            transform: translate(-50%, -15px);
         }
        
     }
@@ -616,9 +999,16 @@ a:hover{
     &__wrap{
         position: relative;
         overflow: hidden;
+
+        height: 100%;
         box-sizing: border-box;
-        padding: 90px 15px 160px;
+        padding: 86px 15px 160px;
+
         background-color: $white;
+
+        @include for-md{
+            padding: 40px 15px 100px;
+        }
 
         &:after{
             content: attr(data-item);
@@ -632,8 +1022,13 @@ a:hover{
             @include Extra();
             color: rgba(#bfc8d0, .3);
 
-            transform: translate(-50%,30%);
+            transform: translate(-50%,37%);
             transition: .3s;
+
+            @include for-md{
+                font-size: 100px;
+                line-height: 103px;
+            }
 
         }
         &:before{
@@ -641,9 +1036,12 @@ a:hover{
             position: absolute;
             right: 0;
             top: 0;
+
             width: 100%;
             height: 0;
+
             background-image: linear-gradient( -90deg, rgb(0,112,196) 0%, rgb(17,136,226) 99%);
+
             transition: .3s;
 
 
@@ -653,6 +1051,7 @@ a:hover{
     &__title{
         position: relative;
         z-index: 10;
+
         font-size: 20px;
         line-height: 23px;
         @include Extra();
@@ -662,6 +1061,11 @@ a:hover{
         color: #3b3d42;
 
         transition: .3s;
+
+        @include for-md{
+            font-size: 18px;
+            line-height: 21px;
+        }
     }
     &__icon-container{
         position: relative;
@@ -680,11 +1084,618 @@ a:hover{
         border: 2px solid #0e84dc;
 
         transition: .3s;
+
+        @include for-md{
+            height: 75px;
+            width: 75px;
+            margin: 50px auto 0;
+        }
     }
     &__icon{
         max-width: 35px;
         max-height: 35px;
         fill: #0e84dc;
+
+        @include for-md{
+            max-width: 28px;
+            max-height: 28px;
+        }
     }
 }
 
+
+.prices{
+    
+    &__row{
+        margin-top: 47px;
+
+        @include for-md{
+            margin-top: 25px;
+        }
+    }
+    &__list-group{
+
+        @include for-md{
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 15px;
+        }
+        @include for-tiny-mob{
+            flex-direction: column;
+        }
+    }
+    &__list-group-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 37px 5px 25px;
+
+        border: none;
+
+        transition: .3s;
+
+        @include for-md{
+            padding: 15px;
+        }
+
+        
+        
+
+        &.active{
+
+            border-radius: 5px;
+
+            .prices__icon{
+
+                fill: $white;
+            }
+
+            .prices__text{
+                color: $white;
+            }
+        }
+    }
+
+    &__icon{
+        height: 24px;
+        width: 21px;
+        margin-bottom: 7px;
+        
+        fill: #1188e2;
+
+        transition: .3s;
+
+    }
+
+    &__text{
+        font-size: 13px;
+        line-height: 14px;
+        color: $black;
+        text-align: center;
+        @include Bold();
+    }
+
+    &__table{
+
+        display: table;
+
+        width: 100%;
+
+        border-radius: 5px;
+
+        @include for-sm{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    &__table-thead{
+        display: table-row;
+
+        @include for-sm{
+            display: none;
+        }
+
+    }
+    &__table-th{
+        display: table-cell;
+        padding-top: 20px;
+        padding-bottom: 21px;
+
+        font-size: 13px;
+        line-height: 16px;
+        color: rgba(#25313f, .3);
+        @include Bold();
+        
+        background-color: $white;
+
+        &:first-child{
+            padding-left: 24px;
+            border-top-left-radius: 5px;
+
+            @include for-sm{
+                padding-left: 0;
+            }
+        }
+        &:last-child{
+            border-top-right-radius: 5px;
+        }
+        &--center{
+            text-align: center;
+        }
+    }
+    &__table-tr{
+        display: table-row;
+
+        @include for-sm{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        &:nth-child(2n){
+            .prices__table-td{
+                background-color: #fafafc;
+            }
+
+        }
+        &:nth-child(2n+1){
+            .prices__table-td{
+                background-color: #fff;
+            }
+
+        }
+    }
+    &__table-tr:last-child{
+        .prices__table-td:last-child{
+            border-bottom-right-radius: 5px;
+        }
+        .prices__table-td:first-child{
+            border-bottom-left-radius: 5px;
+        }
+    }
+    &__table-td{
+        display: table-cell;
+        vertical-align: middle;
+        padding-top: 17px;
+        padding-bottom: 17px;
+
+        font-size: 14px;
+        line-height: 17px;
+        @include Bold();
+        color: #25313f;
+
+        @include for-sm{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        &:first-child{
+            padding-left: 24px;
+            width: 47%;
+            @include for-sm{
+                width: 100%;
+                padding-left: 0;
+
+                text-align: center;
+            }
+        }
+        &--center{
+            text-align: center;
+        }
+
+        &--coast{
+            color: #1188e2;
+        }
+    }
+}
+
+
+.double-section{
+    padding: 67px 0 96px;
+
+    @include for-md{
+        padding: 40px 0;
+    }
+}
+
+.more{
+    padding: 39px 0 35px;
+
+    @include for-md{
+       padding: 30px 0;
+    }
+    &__button{
+        max-width: 332px;
+        width: 100%;
+        padding: 14px;
+        margin: 0 14px;
+        flex-shrink: 0;
+
+        font-size: 14px;
+        line-height: 17px;
+        @include Extra();
+        color: $orange;
+        text-align: center;
+        text-transform: uppercase;
+
+        border: 2px solid $orange;
+        background-color: transparent;
+        border-radius: 24.5px;
+
+        transition: .3s;
+
+        &:hover{
+            background-color: $orange;
+            color: $white;
+        }
+
+        @include for-md{
+            margin: 0 0 15px;
+        }
+        @include for-tiny-mob{
+            padding: 10px;
+
+            font-size: 12px;
+            line-height: 15px;
+
+        }
+    }
+    &__content{
+        display: flex;
+        align-items: center;
+
+        @include for-md{
+            flex-direction: column;
+        }
+    }
+
+    &__list{
+        display: flex;
+        align-items: center;
+
+        @include for-sm{
+           
+
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+    }
+
+    &__list-label{
+
+        margin-right: 21px;
+
+        font-size: 10px;
+        line-height: 13px;
+        font-family: 'Gotham Pro',sans-serif;
+        font-weight: 500;
+        color: rgba(#25313f, .3);
+
+        @include for-sm{
+           width: 100%;
+           margin-right: 0;
+           margin-bottom: 10px;
+
+           text-align: center;
+        }
+    }
+    &__list-item + &__list-item{
+        margin-left: 21px;
+    }
+}
+
+.map-masters{
+    padding-top: 47px;
+
+    @include for-md{
+        padding-top: 30px;
+    }
+    &__content{
+        position: relative;
+        
+        margin-top: 35px;
+        height: 570px;
+
+        @include for-md{
+           height: 350px;
+        }
+    }
+
+    &__canvas{
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        height: 100%;
+        width: 100%;
+    }
+
+    &__info{
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        z-index: 10;
+
+        box-sizing: border-box;
+        padding: 15px;
+        max-width: 638px;
+        width: 100%;
+
+        background-color: $white;
+        border-radius: 5px;
+
+        transform: translateX(-50%);
+
+        @include for-sm{
+            max-width: calc(100% - 30px);
+        }
+    }
+
+    &__text{
+        font-size: 16px;
+        line-height: 19px;
+        @include Demi();
+        text-align: center;
+    }
+}
+
+.footer{
+    position: relative;
+    z-index: 30;
+
+    margin-top: -317px;
+    padding: 56px 0 78px;
+
+    background-color: #eef3f7;
+
+    @include for-md{
+        padding: 30px 0;
+        margin-top: 0;
+    }
+
+    &__button{
+        display: block;
+        width: 100%;
+        max-width: 210px;
+
+        @include for-tiny-mob(){
+            max-width: 100%;
+        }
+    }
+    &__link-container{
+        margin-top: 50px;
+
+        @include for-md{
+            margin-top: 25px;
+
+            text-align: center;
+        }
+        
+    }
+    &__link{
+        font-size: 12px;
+        line-height: 15px;
+        @include Extra();
+        color: $orange;
+
+        transition: .3s;
+    }
+
+    &__logo{
+
+        @include for-md{
+           
+            margin: 0 auto;
+        }
+    }
+}
+
+.inside-menu{
+
+    &__list{
+        display: flex;
+
+        &--md-column{
+
+            @include for-md{
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+    &__list-item + &__list-item{
+        margin-left: 40px;
+
+        @include for-lg{
+            margin-left: 20px;
+        }
+        @include for-md{
+            margin-left: 0;
+            margin-top: 15px;
+        }
+
+
+    }
+
+    &__link{
+
+        position: relative;
+        
+
+        font-size: 18px;
+        line-height: 21px;
+        @include Demi();
+
+        transition: .3s;
+
+        &:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+
+            height: 3px;
+            width: 0;
+
+            background-color: #0071c4;
+
+            transition: .3s;
+
+            @include for-md{
+                left: -5%;
+            }
+        }
+
+        &.active{
+
+            &:before{
+                width: 110%;
+                
+            }
+        }
+
+        &:hover{
+            color: #0070c4;
+        }
+    }
+}
+
+.modal{
+    
+    &-dialog{
+        max-width: 780px;
+    }
+
+    &__body{
+        position: relative;
+
+        box-sizing: border-box;
+        padding: 50px 20px;
+    }
+    &__form{
+        max-width: 195px;
+        margin: 0 auto;
+        width: 100%;
+
+        @include for-sm{
+            max-width: 100%;
+        }
+    }
+
+    &__input-container{
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    &__button{
+        width: 100%;
+    }
+    &__text{
+       margin: 35px auto 0;
+       max-width: 55%;
+
+       font-size: 12px;
+       line-height: 15px;
+       @include Heavy();
+       color: $black;
+       text-align: center;
+
+       @include for-sm{
+           max-width: 100%;
+       }
+    }
+    &__close{
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        
+        height: 13px;
+        width: 13px;
+
+        background: url(../img/icons/close.svg) center center no-repeat;
+    }
+    &__input{
+        height: 41px;
+        display: block;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+
+        font-size: 12px;
+        line-height: 15px;
+        @include Demi();
+        color: $black;
+
+        border: 1px solid #7e6c6c;
+        border-radius: 20.5px;
+
+        @include for-sm{
+            max-width: 100%;
+        }
+    }
+
+    &__textarea{
+        height: 100px !important;
+        display: block;
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+
+        font-size: 12px;
+        line-height: 15px;
+        @include Demi();
+        color: $black;
+
+        border: 1px solid #7e6c6c;
+        border-radius: 20.5px;
+
+        &::placeholder{
+            color: $black;
+        }
+
+        @include for-sm{
+            max-width: 100%;
+        }
+    }
+
+    &__title{
+        margin-bottom: 30px;
+
+        font-size: 32px;
+        line-height: 35px;
+        @include Extra();
+        color: #121a27;
+        text-align: center;
+
+        @include for-md{
+            font-size: 25px;
+            line-height: 32px;
+            margin-bottom: 20px;
+        }
+    }
+    &__subtitle{
+        margin-bottom: 25px;
+
+        font-size: 18px;
+        line-height: 21px;
+        @include Medium();
+        color: #121a27;
+        text-align: center;
+
+        @include for-md{
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.subfooter{
+    height: 317px;
+
+    @include for-md{
+        display: none;
+    }
+}

@@ -9,6 +9,7 @@ const autoprefixer = require("gulp-autoprefixer");
 
 
 
+
 gulp.task("sass", function(){
     return gulp.src("app/scss/**/*.scss")
     .pipe(souremaps.init())
@@ -48,3 +49,10 @@ gulp.task("watch",function(){
 });
 
 gulp.task("default", gulp.parallel("sass", "js", "browser-sync","watch"));
+
+
+gulp.task('scripts', function() {
+    return gulp.src(['app/js/jquery-3.4.1.min.js', 'app/js/jquery.nice-select.min.js','app/js/bootstrap.min.js','app/js/bootstrap.bundle.min.js','app/js/mask.js', 'app/js/swiper.min.js'])
+      .pipe(concat({ path: 'new.js', stat: { mode: 0666 }}))
+      .pipe(gulp.dest('app'));
+  });
